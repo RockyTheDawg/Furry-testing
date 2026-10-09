@@ -1,20 +1,4 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
-
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/1e1322ff-81fa-466d-98fb-5cdd2d641e38
-
-## Run Locally
-
-**Prerequisites:**  Node.js
+# The COllege Marketplace 
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## The college market also known as the app name as _StudentSqaure_ is a marketplace made for student by a student. The overall goal of the app is to make sure that every college student have access to a verified, trusted and reliable seller. The app is run by students. Every Sell, trade or agreement is made by a actual student!
