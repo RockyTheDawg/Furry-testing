@@ -1,20 +1,16 @@
-<div align="center">
+# <h1 align="center">StudentSquare</h1>
 
-# StudentSquare
+**Student Sqaure, which is formally known as the project name _The College Marketplace._**
 
-**StudentSquare, formerly known under the project name _The College Marketplace._**
+## Project Overview
 
-</div>
+StudentSqaure is a web and/or app designed to help college students browse marketplace listings, connect with other students, and access campus-related resources through a centralized platform. 
 
-<h2 align="center">Project Overview</h2>
+The goal is to make student life easier by day to day student-to-student transactions, and campus information into one accessible application.
 
-StudentSquare is a web and/or app platform designed to help college students browse marketplace listings, connect with other students, and access campus-related resources through a centralized platform. 
+## Core Features
 
-The goal is to make student life easier by bringing day-to-day student-to-student transactions and campus information into one accessible application.
-
-<h2 align="center">Core Features</h2>
-
-<h3 align="center">1. Student Marketplace</h3>
+### 1. Student Marketplace
 
 - Browse marketplace listings created by students.
 - Create and manage marketplace listings.
@@ -22,29 +18,29 @@ The goal is to make student life easier by bringing day-to-day student-to-studen
 - Organize listings for easier browsing.
 - Support student-to-student interactions.
 
-<h3 align="center">2. User Accounts</h3>
+### 2. User Accounts
 
 - Support account registration and sign-in.
 - Provide user-specific functionality.
 - Allow users to manage their information and listings.
 - Require agreement to applicable policies during registration.
 
-<h3 align="center">3. Agreements and Policies</h3>
+### 3. Agreements and Policies
 
-The platform will include:
+The platform will have the following:
 
 - Terms of Service
 - User Agreement
 - Marketplace Agreement
 
-**Users will be able to review relevant agreements before accepting them and access applicable policies afterward.**
+**Users should be able to review relevant agreements before accepting them and access applicable policies afterward.**
 
-<h2 align="center">Long-Term Vision</h2>
+## Long-Term Vision
 
-The project's long-term goal is to develop College Marketplace into a reliable student platform accessible through web browsers and potentially a dedicated mobile application. 
+The project long-term goal is to develop College Marketplace into a reliable student platform accessible through web browsers and potentially a dedicated mobile application. 
 
-_All future development will have an updated changelog through GitHub Pages._
+_All future development will have a updated changelog through Github pages_
 
-<h2 align="center">Project Status</h2>
+## Project Status
 
-**Status:** In development (Expected to be finalized in Spring 2027, no later than Summer 2027)
+**Status:** In development (Expect to be finalized in the spring of 2027 no later than summer of 2027)
