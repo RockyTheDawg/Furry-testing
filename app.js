@@ -47,12 +47,15 @@ function applyConfig() {
     link.className = "icon-button";
     link.href = item.url;
     link.target = "_blank";
-    link.rel = "noreferrer";
+    link.rel = "noopener noreferrer";
     link.ariaLabel = item.label;
     link.title = item.label;
   link.innerHTML = item.image
   ? `<img class="social-icon-image" src="${item.image}" alt="">`
   : icon(item.icon);
+    const label = document.createElement("span");
+    label.textContent = item.label;
+    link.append(label);
     socials.append(link);
   });
 

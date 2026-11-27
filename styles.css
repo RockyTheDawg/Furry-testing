@@ -9,7 +9,7 @@
 :root {
   --accent: #ffd166;
   --ink: #583d38;
-  --glass: rgba(65, 42, 38, 0.86);
+  --glass: rgba(12, 14, 18, 0.4);
   --line: rgba(255, 255, 255, 0.28);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
 }
@@ -40,8 +40,8 @@ a {
   position: relative;
   min-height: 100svh;
   display: grid;
-  place-items: center;
-  padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(96px, calc(76px + env(safe-area-inset-bottom))) max(20px, env(safe-area-inset-left));
+  place-items: start;
+  padding: max(40px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(clamp(24px, 12vw, 200px), env(safe-area-inset-left));
   isolation: isolate;
   overflow-y: visible;
 }
@@ -50,20 +50,19 @@ a {
   position: fixed;
   inset: 0;
   width: 100%;
-  height: calc(100svh - 80px);
+  height: 100svh;
   object-fit: contain;
   z-index: -1;
   pointer-events: none;
 }
 
 .identity {
-  width: min(100%, 760px);
-  display: grid;
-  justify-items: center;
-  gap: 18px;
-  grid-template-rows: auto 1fr auto;
-  min-height: max(420px, calc(100svh - 120px));
-  text-align: center;
+  width: min(100%, 340px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
 }
 
 .profile {
@@ -80,48 +79,58 @@ a {
   color: var(--ink);
   font-family: "Caveat", cursive;
   font-weight: 700;
-  font-size: clamp(4.5rem, 12vw, 8rem);
+  font-size: clamp(4.5rem, 10vw, 7rem);
   line-height: 1.05;
   letter-spacing: 0;
 }
 
-.socials { align-self: end; }
 [hidden] { display: none !important; }
+
+.link-stack {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
 
 .socials,
 .contacts {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 12px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
 }
 
 .icon-button,
-.handle,
-.credits-toggle,
-.credits-close {
-  border: 1px solid var(--line);
+.handle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 8px 4px;
+  border: 0;
+  border-radius: 0;
   color: #fff;
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  box-shadow: none;
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: 0 1px 2px #0008;
 }
 
-.icon-button {
-  width: 54px;
-  height: 54px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 999px;
-  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+.icon-button::after {
+  content: "↗";
+  margin-left: auto;
 }
 
 .icon-button:hover,
-.icon-button:focus-visible {
-  transform: translateY(-3px);
-  border-color: var(--accent);
-  background: rgba(65, 42, 38, 0.96);
-  outline: none;
+.handle:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 svg {
@@ -138,18 +147,6 @@ svg {
   height: 25px;
   object-fit: contain;
 }
-.handle {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  max-width: min(100%, 320px);
-  padding: 9px 13px;
-  border-radius: 999px;
-  font-weight: 750;
-  font-size: 0.95rem;
-}
-
 .handle span {
   overflow-wrap: anywhere;
 }
@@ -161,33 +158,23 @@ svg {
 }
 
 .credits-toggle {
-  position: fixed;
-  right: max(18px, env(safe-area-inset-right));
-  bottom: max(12px, env(safe-area-inset-bottom));
-  z-index: 2;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: 999px;
+  position: static;
+  min-height: 48px;
+  padding: 0;
   font: inherit;
-  font-weight: 760;
   cursor: pointer;
 }
 
 .credits-panel {
-  position: fixed;
-  right: 18px;
-  bottom: calc(80px + env(safe-area-inset-bottom));
-  z-index: 3;
-  max-height: calc(100svh - 110px - env(safe-area-inset-bottom));
-  overflow-y: auto;
+  position: relative;
+  width: 100%;
   color: #fff;
-  width: min(360px, calc(100vw - 36px));
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgba(10, 12, 16, 0.78);
   backdrop-filter: blur(20px);
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .credits-panel h2 {
@@ -224,20 +211,14 @@ svg {
 
 @media (max-width: 520px) {
   .stage {
-    padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right));
+    padding: max(24px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(32px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    padding-bottom: calc(40.1vw + 56px + env(safe-area-inset-bottom));
   }
 
-  .identity {
-    gap: 18px;
-  }
-
-  .icon-button {
-    width: 50px;
-    height: 50px;
-  }
-
-  .contacts {
-    gap: 9px;
+  .background {
+    position: absolute;
+    inset: auto 0 max(16px, env(safe-area-inset-bottom));
+    height: auto;
   }
 }
 
@@ -298,8 +279,6 @@ button:focus-visible, a:focus-visible {
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-  .identity { min-height: 350px; }
   .logo { font-size: 4.5rem; }
   .stage { padding-top: 16px; }
-  .background { top: 90px; height: 160px; }
 }
