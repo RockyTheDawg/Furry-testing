@@ -109,7 +109,7 @@ a {
   align-items: center;
   gap: 12px;
   width: 100%;
-  min-height: 64px;
+  min-height: 56px;
   padding: 8px 4px;
   border: 0;
   border-radius: 0;
@@ -117,7 +117,7 @@ a {
   background: transparent;
   box-shadow: none;
   font: inherit;
-  font-size: 24px;
+  font-size: 20px;
   text-align: left;
   text-decoration: none;
   text-shadow: 0 0 2px #f3e1d5, 0 0 4px #f3e1d5;
@@ -135,8 +135,8 @@ a {
 }
 
 svg {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
   fill: none;
   stroke: currentColor;
@@ -146,8 +146,8 @@ svg {
   filter: drop-shadow(0 0 1px #f3e1d5);
 }
 .social-icon-image {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 .social-icon-image,
 .handle-icon {
@@ -162,8 +162,8 @@ svg {
 }
 
 .handle svg {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   flex: 0 0 auto;
 }
 
@@ -262,8 +262,8 @@ svg {
   }
 }
 .handle-icon {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
 .handle {
