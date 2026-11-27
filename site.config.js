@@ -1,8 +1,7 @@
 const siteConfig = {
   name: "Rocky's Website",
-  tagline: "This site keeps this Aussie tummy full",
   logoText: "Rocky",
-  backgroundImage: "assets/background-placeholder.png",
+  backgroundImage: "assets/rocky-dr-pepper-banner.png",
   profileImage: "",
   accent: "#ffd166",
   socials: [

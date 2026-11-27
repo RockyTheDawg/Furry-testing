@@ -27,7 +27,7 @@ function setText(id, value) {
 function applyConfig() {
   document.title = siteConfig.name || "Personal links";
   document.documentElement.style.setProperty("--accent", siteConfig.accent || "#ffd166");
-  document.getElementById("background").src = siteConfig.backgroundImage || "assets/background-placeholder.png";
+  document.getElementById("background").src = siteConfig.backgroundImage || "assets/rocky-dr-pepper-banner.png";
 
   const profile = document.getElementById("profile");
   if (siteConfig.profileImage) {
@@ -38,7 +38,6 @@ function applyConfig() {
     profile.hidden = true;
   }
 
-  setText("tagline", siteConfig.tagline);
   setText("site-title", siteConfig.logoText || siteConfig.name);
 
   const socials = document.getElementById("socials");
@@ -48,12 +47,15 @@ function applyConfig() {
     link.className = "icon-button";
     link.href = item.url;
     link.target = "_blank";
-    link.rel = "noreferrer";
+    link.rel = "noopener noreferrer";
     link.ariaLabel = item.label;
     link.title = item.label;
   link.innerHTML = item.image
   ? `<img class="social-icon-image" src="${item.image}" alt="">`
   : icon(item.icon);
+    const label = document.createElement("span");
+    label.textContent = item.label;
+    link.append(label);
     socials.append(link);
   });
 
