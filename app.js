@@ -51,7 +51,7 @@ function applyConfig() {
     link.ariaLabel = item.label;
     link.title = item.label;
   link.innerHTML = item.image
-  ? `<img class="social-icon-image" src="${item.image}" alt="">`
+  ? `<span class="social-icon-image" style="--icon-image: url('${item.image}')" aria-hidden="true"></span>`
   : icon(item.icon);
     const label = document.createElement("span");
     label.textContent = item.label;
@@ -68,7 +68,7 @@ function applyConfig() {
   pill.title = `Copy ${item.label}`;
 
   const contactIcon = item.image
-    ? `<img class="handle-icon" src="${item.image}" alt="" aria-hidden="true">`
+    ? `<span class="handle-icon" style="--icon-image: url('${item.image}')" aria-hidden="true"></span>`
     : icon(item.icon);
 
   pill.innerHTML = `${contactIcon}<span>${item.value}</span>`;
@@ -102,15 +102,21 @@ function setupCredits() {
   const close = document.getElementById("credits-close");
   const panel = document.getElementById("credits-panel");
 
-  function setOpen(isOpen) {
+  function setOpen(isOpen, restoreFocus = true) {
     if (panel.hidden === !isOpen) return;
     panel.hidden = !isOpen;
     toggle.setAttribute("aria-expanded", String(isOpen));
-    (isOpen ? close : toggle).focus();
+    if (isOpen) close.focus();
+    else if (restoreFocus) toggle.focus({ preventScroll: true });
   }
 
   toggle.addEventListener("click", () => setOpen(panel.hidden));
   close.addEventListener("click", () => setOpen(false));
+  // Click also covers touch, pen, and keyboard activation without dismissing on scroll.
+  document.addEventListener("click", (event) => {
+    if (panel.hidden || toggle.contains(event.target)) return;
+    setOpen(false, panel.contains(document.activeElement));
+  });
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape") setOpen(false);
   });

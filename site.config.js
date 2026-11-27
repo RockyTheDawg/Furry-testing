@@ -40,6 +40,6 @@ const siteConfig = {
   ],
   credits: [
     "Website made by RockyTheDog",
-    "Every site visit, funds Rocky’s food intake"
+    "Background image by Himi"
   ]
 };
