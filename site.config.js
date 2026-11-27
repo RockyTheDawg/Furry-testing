@@ -23,7 +23,7 @@ const siteConfig = {
     {
       label: "Furtrack",
       image: "assets/furtrack-transparent-white.png",
-      url: "https://www.furtrack.com/user/RockyTheDog/uploads"
+      url: "https://www.furtrack.com/user/RockyTheDog/photography"
     }
   ],
   contacts: [
@@ -35,7 +35,8 @@ const siteConfig = {
     {
       label: "Telegram",
       image: "assets/telegram-white.svg",
-      value: "@rockythedog100"
+      value: "@rockythedog100",
+      url: "https://t.me/rockythedog100"
     }
   ],
   credits: [
