@@ -9,6 +9,7 @@
 :root {
   --accent: #ffd166;
   --ink: #583d38;
+  --social-ink: #57534e;
   --social-bottom: 2in;
 }
 
@@ -112,13 +113,13 @@ a {
   padding: 8px 4px;
   border: 0;
   border-radius: 0;
-  color: #fff;
+  color: var(--social-ink);
   background: transparent;
   box-shadow: none;
   font: inherit;
   text-align: left;
   text-decoration: none;
-  text-shadow: 0 1px 3px #000, 0 0 2px #000;
+  text-shadow: 0 0 2px #f3e1d5, 0 0 4px #f3e1d5;
 }
 
 .icon-button::after {
@@ -140,13 +141,19 @@ svg {
   stroke-width: 1.9;
   stroke-linecap: round;
   stroke-linejoin: round;
-  filter: drop-shadow(0 1px 1px #0009);
+  filter: drop-shadow(0 0 1px #f3e1d5);
 }
 .social-icon-image {
   width: 25px;
   height: 25px;
-  object-fit: contain;
-  filter: drop-shadow(0 1px 1px #0009);
+}
+.social-icon-image,
+.handle-icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  background-color: currentColor;
+  -webkit-mask: var(--icon-image) center / contain no-repeat;
+  mask: var(--icon-image) center / contain no-repeat;
 }
 .handle span {
   overflow-wrap: anywhere;
@@ -255,9 +262,6 @@ svg {
 .handle-icon {
   width: 23px;
   height: 23px;
-  object-fit: contain;
-  flex: 0 0 auto;
- filter: brightness(0) invert(1) drop-shadow(0 1px 1px #0009);
 }
 
 .handle {
