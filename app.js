@@ -103,8 +103,10 @@ function setupCredits() {
   const panel = document.getElementById("credits-panel");
 
   function setOpen(isOpen) {
+    if (panel.hidden === !isOpen) return;
     panel.hidden = !isOpen;
     toggle.setAttribute("aria-expanded", String(isOpen));
+    (isOpen ? close : toggle).focus();
   }
 
   toggle.addEventListener("click", () => setOpen(panel.hidden));
