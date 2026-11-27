@@ -1,7 +1,15 @@
+@font-face {
+  font-family: "Caveat";
+  src: url("assets/fonts/Caveat.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 :root {
   --accent: #ffd166;
-  --ink: #fffaf0;
-  --glass: rgba(12, 14, 18, 0.4);
+  --ink: #583d38;
+  --glass: rgba(65, 42, 38, 0.86);
   --line: rgba(255, 255, 255, 0.28);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
 }
@@ -19,9 +27,8 @@ body {
   margin: 0;
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
- height: 100dvh;
-overflow: hidden;
-  background: #11151e;
+  min-height: 100svh;
+  background: #f3e1d5;
 }
 
 button,
@@ -31,11 +38,10 @@ a {
 
 .stage {
   position: relative;
- min-height: 100dvh;
-height: 100dvh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: 48px 20px;
+  padding: max(24px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(96px, calc(76px + env(safe-area-inset-bottom))) max(20px, env(safe-area-inset-left));
   isolation: isolate;
   overflow-y: visible;
 }
@@ -44,28 +50,20 @@ height: 100dvh;
   position: fixed;
   inset: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -3;
-  transform: scale(1.02);
-}
-
-.shade {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(255, 209, 102, 0.2), transparent 28%),
-    linear-gradient(180deg, rgba(7, 9, 12, 0.18), rgba(7, 9, 12, 0.68));
+  height: calc(100svh - 80px);
+  object-fit: contain;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .identity {
   width: min(100%, 760px);
   display: grid;
   justify-items: center;
-  gap: 22px;
+  gap: 18px;
+  grid-template-rows: auto 1fr auto;
+  min-height: max(420px, calc(100svh - 120px));
   text-align: center;
-  filter: drop-shadow(var(--shadow));
 }
 
 .profile {
@@ -77,35 +75,18 @@ height: 100dvh;
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.35);
 }
 
-.tagline {
+.logo {
   margin: 0;
-  padding: 7px 13px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: rgba(255, 255, 255, 0.84);
-  background: rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(14px);
-  font-size: clamp(0.72rem, 1.8vw, 0.9rem);
-  line-height: 1.2;
-  text-transform: uppercase;
+  color: var(--ink);
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: clamp(4.5rem, 12vw, 8rem);
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
-.logo {
-  margin: 0;
-  color: #fff;
-  font-family: ui-rounded, "Arial Rounded MT Bold", Inter, system-ui, sans-serif;
-  font-size: clamp(3.7rem, 14vw, 9.7rem);
-  line-height: 0.88;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  text-wrap: balance;
-  text-shadow:
-    0 5px 0 rgba(0, 0, 0, 0.22),
-    0 14px 40px rgba(0, 0, 0, 0.45);
-  paint-order: stroke fill;
-  -webkit-text-stroke: clamp(1px, 0.35vw, 4px) rgba(22, 19, 14, 0.8);
-}
+.socials { align-self: end; }
+[hidden] { display: none !important; }
 
 .socials,
 .contacts {
@@ -139,7 +120,7 @@ height: 100dvh;
 .icon-button:focus-visible {
   transform: translateY(-3px);
   border-color: var(--accent);
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(65, 42, 38, 0.96);
   outline: none;
 }
 
@@ -158,7 +139,7 @@ svg {
   object-fit: contain;
 }
 .handle {
-  min-height: 42px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -181,9 +162,10 @@ svg {
 
 .credits-toggle {
   position: fixed;
-  right: 18px;
-  bottom: 18px;
-  min-height: 42px;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 2;
+  min-height: 44px;
   padding: 0 14px;
   border-radius: 999px;
   font: inherit;
@@ -194,7 +176,11 @@ svg {
 .credits-panel {
   position: fixed;
   right: 18px;
-  bottom: 72px;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  z-index: 3;
+  max-height: calc(100svh - 110px - env(safe-area-inset-bottom));
+  overflow-y: auto;
+  color: #fff;
   width: min(360px, calc(100vw - 36px));
   padding: 18px;
   border: 1px solid var(--line);
@@ -224,8 +210,8 @@ svg {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   display: grid;
   place-items: center;
   border-radius: 999px;
@@ -238,7 +224,7 @@ svg {
 
 @media (max-width: 520px) {
   .stage {
-    padding: 36px 15px 84px;
+    padding-inline: max(16px, env(safe-area-inset-left)) max(16px, env(safe-area-inset-right));
   }
 
   .identity {
@@ -281,7 +267,7 @@ svg {
 .credits-toggle.paw-button {
   width: auto;
   height: auto;
-  min-height: 0;
+  min-height: 48px;
   padding: 0;
   border: 0 !important;
   border-radius: 0 !important;
@@ -289,7 +275,10 @@ svg {
   box-shadow: none !important;
   backdrop-filter: none !important;
   color: #000 !important;
-  font-size: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 2rem;
 }
 .credits-toggle.paw-button:hover,
 .credits-toggle.paw-button:focus-visible {
@@ -298,16 +287,19 @@ svg {
   background: transparent !important;
   box-shadow: none !important;
 }
-.credits-panel .credits-link,
-.credits-panel .credits-link:visited {
-  color: #fff !important;
-  text-decoration: none;
+.signature-name {
+  font: 600 2.4rem/1.1 "Caveat", cursive;
+  color: var(--ink);
 }
 
-.credits-panel .credits-link,
-.credits-panel .credits-link:visited {
-  display: inline-block;
-  margin-left: 20px;
-  color: #fff !important;
-  text-decoration: none;
+button:focus-visible, a:focus-visible {
+  outline: 3px solid #784c48;
+  outline-offset: 5px;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .identity { min-height: 350px; }
+  .logo { font-size: 4.5rem; }
+  .stage { padding-top: 16px; }
+  .background { top: 90px; height: 160px; }
 }

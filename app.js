@@ -27,7 +27,7 @@ function setText(id, value) {
 function applyConfig() {
   document.title = siteConfig.name || "Personal links";
   document.documentElement.style.setProperty("--accent", siteConfig.accent || "#ffd166");
-  document.getElementById("background").src = siteConfig.backgroundImage || "assets/background-placeholder.png";
+  document.getElementById("background").src = siteConfig.backgroundImage || "assets/rocky-dr-pepper-banner.png";
 
   const profile = document.getElementById("profile");
   if (siteConfig.profileImage) {
@@ -38,7 +38,6 @@ function applyConfig() {
     profile.hidden = true;
   }
 
-  setText("tagline", siteConfig.tagline);
   setText("site-title", siteConfig.logoText || siteConfig.name);
 
   const socials = document.getElementById("socials");
