@@ -61,32 +61,40 @@ function applyConfig() {
 
   const contacts = document.getElementById("contacts");
   contacts.innerHTML = "";
- siteConfig.contacts.forEach((item) => {
-  const pill = document.createElement("button");
-  pill.type = "button";
-  pill.className = "handle";
-  pill.title = `Copy ${item.label}`;
+  siteConfig.contacts.forEach((item) => {
+    const pill = document.createElement(item.url ? "a" : "button");
+    pill.className = "handle";
+    pill.title = item.url ? `Open ${item.label}` : `Copy ${item.label}`;
 
-  const contactIcon = item.image
-    ? `<span class="handle-icon" style="--icon-image: url('${item.image}')" aria-hidden="true"></span>`
-    : icon(item.icon);
+    if (item.url) {
+      pill.href = item.url;
+      pill.target = "_blank";
+      pill.rel = "noopener noreferrer";
+    } else {
+      pill.type = "button";
+    }
 
-  pill.innerHTML = `${contactIcon}<span>${item.value}</span>`;
+    pill.innerHTML = item.image
+      ? `<span class="handle-icon" style="--icon-image: url('${item.image}')" aria-hidden="true"></span>`
+      : icon(item.icon);
+    const label = document.createElement("span");
+    label.textContent = item.value;
+    pill.append(label);
 
-  pill.addEventListener("click", async () => {
-    await navigator.clipboard.writeText(item.copyValue || item.value);
+    if (!item.url) {
+      let resetLabel;
+      pill.addEventListener("click", async () => {
+        await navigator.clipboard.writeText(item.copyValue || item.value);
+        clearTimeout(resetLabel);
+        label.textContent = "Copied!";
+        resetLabel = setTimeout(() => {
+          label.textContent = item.value;
+        }, 1200);
+      });
+    }
 
-    const text = pill.querySelector("span");
-    const original = text.textContent;
-    text.textContent = "Copied!";
-
-    setTimeout(() => {
-      text.textContent = original;
-    }, 1200);
+    contacts.append(pill);
   });
-
-  contacts.append(pill);
-});
 
   const credits = document.getElementById("credits");
   credits.innerHTML = "";
