@@ -1,5 +1,5 @@
 const siteConfig = {
-  name: "Rocky's Website",
+  name: "ROCKY!",
   logoText: "Rocky",
   backgroundImage: "assets/rocky-dr-pepper-banner.png",
   profileImage: "",
