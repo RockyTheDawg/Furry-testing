@@ -1,21 +1,64 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StudentSquare - Campus Sublet, Marketplace & Transit Hub</title>
-    <meta name="description" content="Verified campus-gated housing, sublets, roommate matching, parent co-signer portal, and deposit escrow across all 50 states." />
-    <meta property="og:title" content="StudentSquare - Campus Sublet, Marketplace & Transit Hub" />
-    <meta property="og:description" content="Verified campus-gated housing, sublets, roommate matching, parent co-signer portal, and deposit escrow across all 50 states." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Syne:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>your name</title>
+<link rel="icon" type="image/png" href="assets/rocky-dr-pepper.png.png?v=2">
+<link rel="apple-touch-icon" href="assets/site%20logo%202.png">
+<meta name="description" content="This site is about RockyTheDog and all his socials! Consider checking it out and taking a look around!">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8TQSMT46B9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8TQSMT46B9');
+</script>
+<meta property="og:title" content="Rocky">
+<meta property="og:description" content="This site is about RockyTheDog and all his socials! Consider checking it out and taking a look around!">
+<meta property="og:image" content="https://adognamedrocky.github.io/rocks.dog/assets/site%20logo%202.png">
+<meta property="og:url" content="https://adognamedrocky.github.io/rocks.dog/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rocky">
+<meta name="twitter:description" content="This site is about RockyTheDog and all his socials! Consider checking it out and taking a look around!">
+<meta name="twitter:image" content="https://adognamedrocky.github.io/rocks.dog/assets/site%20logo%202.png">
+    <link rel="preload" href="assets/background-placeholder.png" as="image">
+    <link rel="stylesheet" href="styles.css">
   </head>
-  <body class="bg-stone-50 text-stone-900 antialiased selection:bg-amber-100 selection:text-amber-900">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body>
+    <main class="stage" aria-label="Personal link page">
+     <video class="background" autoplay muted loop playsinline poster="assets/background-placeholder.png">
+ <source src="assets/Aussie%20background.mp4" type="video/mp4">
+</video>
+<img class="background" id="background" src="assets/background-placeholder.png" alt="" hidden>
+      <div class="shade" aria-hidden="true"></div>
+
+      <section class="identity" aria-labelledby="site-title">
+        <img class="profile" id="profile" src="" alt="">
+        <p class="tagline" id="tagline"></p>
+        <h1 class="logo" id="site-title"></h1>
+        <nav class="socials" id="socials" aria-label="Social links"></nav>
+        <div class="contacts" id="contacts" aria-label="Contact handles"></div>
+      </section>
+
+  <button class="credits-toggle paw-button" id="credits-toggle" type="button" aria-expanded="false" aria-controls="credits-panel" aria-label="Open credits">
+  🐾
+</button>
+
+      <aside class="credits-panel" id="credits-panel" aria-label="Credits" hidden>
+        <button class="credits-close" id="credits-close" type="button" aria-label="Close credits">
+          <span aria-hidden="true">x</span>
+        </button>
+        <h2>Credits</h2>
+        <ul id="credits"></ul>
+      <a class="credits-link" href="https://buymeacoffee.com/rockythedog" target="_blank" rel="noreferrer">Support me: BuyMeCoffee</a>
+      </aside>
+      
+    <script src="site.config.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
-
